@@ -8,15 +8,20 @@
         <div class="center">
             <div class="container">
                 <h1>ASCII Art</h1>
+                <br/>
                 <form method="POST" action="/ascii-art">
                     <label>Text</label>
+                    <br/>
                     <textarea name="text" required></textarea>
+                    <br/>
                     <label>Banner</label>
+                    <br/>
                     <div class="radio-group">
                         <label><input type="radio" name="banner" value="standard" checked> standard</label>
                         <label><input type="radio" name="banner" value="shadow"> shadow</label>
                         <label><input type="radio" name="banner" value="thinkertoy"> thinkertoy</label>
                     </div>
+                    <br/>
                     <button type="submit">Generate</button>
                 </form>
             </div>

@@ -5,6 +5,7 @@ import (
 )
 
 func (a *HandlersStruct) HomeHandler(w http.ResponseWriter, r *http.Request) {
+	tmpl := a.IndexT
 	if r.URL.Path != "/" {
 		a.RenderError(w, http.StatusNotFound)
 		return
@@ -14,7 +15,7 @@ func (a *HandlersStruct) HomeHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := a.IndexT.Execute(w, nil); err != nil {
+	if err := tmpl.Execute(w, nil); err != nil {
 		a.RenderError(w, http.StatusInternalServerError)
 	}
 }

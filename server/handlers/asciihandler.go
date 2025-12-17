@@ -3,6 +3,7 @@ package handlers
 import (
 	"ascii-art-web/server/ascii"
 	"bytes"
+	"html"
 	"net/http"
 )
 
@@ -26,12 +27,7 @@ func (a *HandlersStruct) AsciiHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data := struct {
-		Result string
-	}{
-		Result: asciiResult,
-	}
-
+	data := PageData{Result: html.EscapeString(asciiResult)}
 	tmpl := a.ResultT
 
 	var buf bytes.Buffer
